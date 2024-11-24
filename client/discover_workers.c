@@ -19,7 +19,6 @@ List discoverWorkers() {
     perror("Failed to create socket");
     exit(EXIT_FAILURE);
   }
-  puts("Created socket");
 
   // Enable broadcast
   int broadcast = 1;
@@ -28,7 +27,6 @@ List discoverWorkers() {
     close(sockfd);
     exit(EXIT_FAILURE);
   }
-  puts("Enabled broadcast");
 
   // Set up broadcast address
   struct sockaddr_in broadcast_addr;
@@ -54,7 +52,6 @@ List discoverWorkers() {
     close(sockfd);
     exit(EXIT_FAILURE);
   }
-  puts("Sent broadcast message");
 
   // Receive response from workers
   struct sockaddr_in worker_addr;
