@@ -1,17 +1,18 @@
 services:
   client:
-    image: client:latest
     build:
       context: ./client
     networks:
-      - default
+      - app-network
     depends_on:
       - worker
   
   worker:
-    image: worker:latest
     build:
       context: ./worker
     networks:
-      - default
-    
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge    
