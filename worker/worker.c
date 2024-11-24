@@ -1,3 +1,7 @@
+#include <pthread.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "calculation_service.h"
 #include "discovery_service.h"
 

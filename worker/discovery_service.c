@@ -1,5 +1,18 @@
 #include "discovery_service.h"
 
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <pthread.h>
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <unistd.h>
+
+#define DISCOVERY_PORT 12345
+#define BUFFER_SIZE 256
+
 int sockfd;
 
 void cleanup_discovery(int sig) {

@@ -1,18 +1,5 @@
 #pragma once
 
-#include <math.h>
-#include <netinet/in.h>
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-
-#define CALCULATION_PORT 54321
-#define BUFFER_SIZE 256
-
 typedef struct {
   int interval_id;
   double from;
