@@ -26,4 +26,4 @@ COPY --from=build /app/worker /usr/local/bin/worker
 RUN chmod +x /usr/local/bin/worker
 
 # Set the default command
-CMD ["/usr/local/bin/worker"]
+CMD ["worker"]

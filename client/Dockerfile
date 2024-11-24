@@ -26,4 +26,4 @@ COPY --from=build /app/client /usr/local/bin/client
 RUN chmod +x /usr/local/bin/client
 
 # Set the default command
-CMD ["/usr/local/bin/client"]
+CMD ["client"]
