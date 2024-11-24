@@ -35,10 +35,10 @@ List discoverWorkers() {
   memset(&broadcast_addr, 0, sizeof(broadcast_addr));
   broadcast_addr.sin_family = AF_INET;
   broadcast_addr.sin_port = htons(BROADCAST_PORT);
-  broadcast_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+  broadcast_addr.sin_addr.s_addr = inet_addr("255.255.255.255");
 
   // Set socket receive timeout
-  struct timeval timeout = {5, 0};  // 5 seconds timeout
+  struct timeval timeout = {2, 0};  // 5 seconds timeout
   if (setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
     perror("Failed to set socket timeout");
     close(sockfd);
