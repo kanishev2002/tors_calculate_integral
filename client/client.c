@@ -148,13 +148,18 @@ int main(int argc, char** argv) {
     int remaining_tasks = tasks.length - num_tasks;
     // Move the unsubmitted tasks to the beginning
     memmove(tasks.items, tasks.items + num_tasks * sizeof(TaskData), remaining_tasks * sizeof(TaskData));
-    // Append the tasks that could not complete
-    memcpy(tasks.items + remaining_tasks * sizeof(TaskData), uncompleted_tasks.items,
-           uncompleted_tasks.length * sizeof(TaskData));
+    if (uncompleted_tasks.length > 0) {
+      // Append the tasks that could not complete
+      memcpy(tasks.items + remaining_tasks * sizeof(TaskData), uncompleted_tasks.items,
+             uncompleted_tasks.length * sizeof(TaskData));
+    }
     tasks.length = remaining_tasks + uncompleted_tasks.length;
     printf("Finished processing some tasks. Tasks remaining: %d\n", tasks.length);
     dispose_list(&uncompleted_tasks);
   }
   double calc_result = calculate_kahan_sum(results, tasks_cnt);
-  printf("Finished calculating. Result: %f\n", calc_result);
+  printf("Finished calculating. Result:\n");
+  printf("Integral x*sin(x) from %f to %f = %f\n", from, to, calc_result);
+  dispose_list(&tasks);
+  dispose_list(&workers);
 }
