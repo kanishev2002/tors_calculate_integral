@@ -1,0 +1,17 @@
+services:
+  client:
+    image: client:latest
+    build:
+      context: ./client
+    networks:
+      - default
+    depends_on:
+      - worker
+  
+  worker:
+    image: worker:latest
+    build:
+      context: ./worker
+    networks:
+      - default
+    
