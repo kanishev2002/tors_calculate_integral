@@ -12,9 +12,12 @@ WORKDIR /app
 # Copy source files and Makefile
 COPY . /app/
 
+# Allow dynamic build type selection via build arguments
+ARG BUILD_TYPE=debug
+
 # Build the client binary
 RUN make clean
-RUN make
+RUN make BUILD_TYPE=${BUILD_TYPE}
 
 # Stage 2: Runtime
 FROM debian:bullseye-slim

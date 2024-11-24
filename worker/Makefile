@@ -17,7 +17,7 @@ CFLAGS_release = -Wall -Wextra -O2 -DNDEBUG
 CFLAGS_msan = -Wall -Wextra -g -fsanitize=memory -fsanitize-memory-track-origins -fno-omit-frame-pointer
 
 LDFLAGS_debug = -fsanitize=address,undefined
-LDFLAGS_release = 
+LDFLAGS_release = -lpthread -lm
 LDFLAGS_msan = -fsanitize=memory
 
 # Select flags based on build type
